@@ -1,0 +1,64 @@
+//涟漪的构造函数
+function waveObj(){
+	//位置
+	this.x=[];
+	this.y=[];
+	//是否存活
+	this.alive=[];
+	//半径
+	this.r=[];
+}
+//数量
+waveObj.prototype.num=10;
+//初始化
+waveObj.prototype.init=function(){
+	for (var i=0;i<this.num;i++) {
+		this.x[i]=0;
+		this.y[i]=0;
+		this.alive[i]=false;
+		this.r[i]=0;
+	}
+}
+//绘制
+waveObj.prototype.draw=function(){
+	ctx1.save();
+	//宽度
+	ctx1.lineWidth=2;
+	//阴影模糊级数
+	ctx1.shadowBlur=10;
+	//阴影颜色
+	ctx1.shadowColor="white";
+	for (var i=0;i<this.num;i++) {
+		if(this.alive[i]){
+			//半径随着时间增加
+			this.r[i]+=deltaTime*0.05;
+			//如果半径大于50则消失
+			if(this.r[i]>50){
+				this.alive[i]=false;
+				break;
+			}
+			//透明度和半径成反比
+			var alpha=1-this.r[i]/50;
+			//绘制
+			ctx1.beginPath();
+			ctx1.arc(this.x[i],this.y[i],this.r[i],0,Math.PI*2);
+			ctx1.closePath();
+			ctx1.strokeStyle="rgba(255,255,255,"+alpha+")";
+			ctx1.stroke();
+		}
+	}
+	ctx1.restore();
+}
+//涟漪的产生函数
+waveObj.prototype.born=function(x,y){
+	for (var i=0;i<this.num;i++) {
+		if(!this.alive[i]){
+			//如果涟漪没有存活，使其复活并初始化半径和位置
+			this.alive[i]=true;
+			this.r[i]=10;
+			this.x[i]=x;
+			this.y[i]=y;
+			return;
+		}
+	}
+}

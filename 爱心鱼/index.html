@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>TinyHeart</title>
+		<style type="text/css">
+			body{
+				padding-top:10px ;
+			}
+			.all_bg{
+				width: 800px;
+				height: 600px;
+				margin: 0 auto;
+			}
+			#allcanvas{
+				width: 800px;
+				height: 600px;
+				position: relative;
+				margin: 0;
+			}
+			#canvas1{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				z-index: 1;
+			}
+			#canvas2{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				z-index: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all_bg">
+			<div id="allcanvas">
+				<!--画布一
+					1、大鱼
+					2、小鱼
+					3、灰尘
+					4、分数
+					5、涟漪
+				-->
+				<canvas id="canvas1" width="800" height="600"></canvas>
+				<!--画布二
+					1、背景
+					2、海藻
+					3、果实
+				-->
+				<canvas id="canvas2" width="800" height="600"></canvas>
+			</div>
+		<script src="js/commonFunctions.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/background.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ane.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fruit.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/baby.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/data.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/wave.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/halo.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/dust.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/collision.js" type="text/javascript" charset="utf-8"></script>
+		</div>
+	</body>
+</html>
